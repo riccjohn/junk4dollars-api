@@ -1,0 +1,213 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  DisabledByDefault: true
+
+  Exclude:
+    - 'Vagrantfile'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'test/data/**/*'
+    - 'vendor/**/*'
+
+# Default lint cops
+
+Lint/AssignmentInCondition:
+  Enabled: true
+  AllowSafeAssignment: true
+
+Layout/BlockAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: either
+
+Layout/DefEndAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: start_of_line
+  SupportedStylesAlignWith:
+    - def
+    - start_of_line
+  AutoCorrect: false
+
+Lint/UnusedBlockArgument:
+  Enabled: true
+  #IgnoreEmptyBlocks: true
+  AllowUnusedKeywordArguments: false
+
+Lint/UnusedMethodArgument:
+  Enabled: true
+  AllowUnusedKeywordArguments: false
+  IgnoreEmptyMethods: true
+
+Lint/UselessAssignment:
+  Enabled: true
+
+Lint/EmptyInterpolation:
+  Enabled: true
+
+# NBX project cops
+
+Naming/AccessorMethodName:
+  Description: Check the naming of accessor methods for get_/set_.
+  Enabled: true
+
+Naming/PredicateName:
+  Enabled: true
+  NamePrefix:
+    - is_
+    - has_
+    - have_
+  NamePrefixBlacklist:
+    - is_
+    - has_
+    - have_
+  NameWhitelist:
+    - is_a?
+
+# Indent private/protected/public as deep as method definitions
+Layout/AccessModifierIndentation:
+  Enabled: true
+  EnforcedStyle: indent
+  SupportedStyles:
+    - outdent
+    - indent
+
+Naming/VariableName:
+  Enabled: true
+  EnforcedStyle: snake_case
+  SupportedStyles:
+    - snake_case
+    - camelCase
+
+Naming/MethodName:
+  Enabled: true
+  EnforcedStyle: snake_case
+  SupportedStyles:
+    - snake_case
+    - camelCase
+
+Style/MethodDefParentheses:
+  Enabled: true
+  EnforcedStyle: require_parentheses
+  SupportedStyles:
+    - require_parentheses
+    - require_no_parentheses
+    - require_no_parentheses_except_multiline
+
+Style/MethodCallWithoutArgsParentheses:
+  Description: 'Do not use parentheses for method calls with no arguments.'
+  Enabled: true
+
+Layout/SpaceAfterMethodName:
+  Enabled: true
+
+Layout/SpaceBeforeFirstArg:
+  Enabled: true
+
+Layout/TrailingBlankLines:
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+Layout/EmptyLines:
+  Enabled: true
+
+Layout/LeadingCommentSpace:
+  Enabled: true
+
+Layout/AlignArray:
+  Enabled: true
+
+Layout/AlignHash:
+  Enabled: true
+
+Style/BracesAroundHashParameters:
+  Enabled: true
+
+Style/HashSyntax:
+  Enabled: true
+
+Style/EmptyElse:
+  Enabled: true
+
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+
+Layout/IndentationConsistency:
+  Enabled: true
+
+Style/NilComparison:
+  Enabled: true
+
+Layout/Tab:
+  Enabled: true
+
+Style/ZeroLengthPredicate:
+  Enabled: true
+
+Layout/SpaceInsideStringInterpolation:
+  Enabled: true
+
+Layout/CommentIndentation:
+  Enabled: true
+
+Style/RedundantReturn:
+  Enabled: true
+
+Layout/SpaceAfterComma:
+  Enabled: true
+
+Layout/CaseIndentation:
+  Enabled: true
+
+Layout/IndentationWidth:
+  Enabled: true
+
+Style/NumericLiteralPrefix:
+  Enabled: true
+
+Style/UnneededInterpolation:
+  Enabled: true
+
+Layout/MultilineArrayBraceLayout:
+  Enabled: true
+
+Style/PreferredHashMethods:
+  Enabled: true
+
+Style/RedundantSelf:
+  Enabled: true
+
+Style/IfInsideElse:
+  Enabled: true
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+
+Layout/SpaceAroundBlockParameters:
+  Enabled: true
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: true
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+
+Style/TrailingCommaInArguments:
+  Enabled: true
+
+Style/BlockDelimiters:
+  Enabled: true
+  IgnoredMethods:
+    - sig
+
+Style/NumericPredicate:
+  Enabled: true
+
+Style/ColonMethodCall:
+  Enabled: true
+
+Style/StringLiterals:
+  Enabled: true
