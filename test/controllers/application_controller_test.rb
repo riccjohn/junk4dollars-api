@@ -8,7 +8,7 @@ class ApplicationControllerTest < ActionDispatch::IntegrationTest
 
   test '/dummy endpoint should respond with 200' do
     get '/dummy'
-    assert_equal 200, response.code.to_i
+    assert_equal 200, @response.code.to_i
   end
 
   test '/dummy endpoint should respond with json data' do
