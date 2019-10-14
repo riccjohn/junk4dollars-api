@@ -1,24 +1,33 @@
-# README
+[![Build Status](https://travis-ci.com/riccjohn/junk4dollars-api.svg?branch=master)](https://travis-ci.com/riccjohn/junk4dollars-api)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Installation
 
-Things you may want to cover:
+## Rails
 
-* Ruby version
+Install `rails 6.0.0`
 
-* System dependencies
+```zsh
+gem install rails -v 6.0.0
+```
 
-* Configuration
+Clone this repo
 
-* Database creation
+```zsh
+git clone git@github.com:riccjohn/junk4dollars-api.git
+```
 
-* Database initialization
+Install dependencies
 
-* How to run the test suite
+```zsh
+cd junk4dollars-api && bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+# Starting the server locally
 
-* Deployment instructions
+From within the `junk4dollars-api` directory
 
-* ...
+```zsh
+rails server
+```
+
+Visit `localhost:3000` in your browser
