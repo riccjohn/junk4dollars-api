@@ -1,9 +1,10 @@
 language: ruby
 rvm:
- - 2.6.4
+  - 2.6.4
 services:
   - postgresql
 before_script:
   - psql -c 'create database junk4dollars_test;' -U postgres
 script:
   - bundle exec rake test
+  - bundle exec rake rubocop
