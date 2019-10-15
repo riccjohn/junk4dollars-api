@@ -15,8 +15,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     users_response = JSON.parse(@response.body, symbolize_names: true)
     response_names = users_response.map {|user| user[:name]}
 
-    assert_equal response_names[0], users[0]
-    assert_equal response_names[1], users[1]
+    assert_equal response_names, users
     assert_equal 2, users_response.count
   end
 
