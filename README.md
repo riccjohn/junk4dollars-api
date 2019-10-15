@@ -1,3 +1,5 @@
+# Junk4Dollars
+
 [![Build Status](https://travis-ci.com/riccjohn/junk4dollars-api.svg?branch=master)](https://travis-ci.com/riccjohn/junk4dollars-api)
 
 # Installation
@@ -31,3 +33,7 @@ rails server
 ```
 
 Visit `localhost:3000` in your browser
+
+# CI
+
+[https://travis-ci.com/riccjohn/junk4dollars-api](https://travis-ci.com/riccjohn/junk4dollars-api)
