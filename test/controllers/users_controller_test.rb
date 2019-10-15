@@ -2,9 +2,8 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   test 'should get /users/1 endpoint' do
-    User.create(name: 'Test')
-    all_users = User.all
-    get "/users/#{all_users[0]['id']}"
+    new_user = User.create(name: 'Test')
+    get "/users/#{new_user['id']}"
     assert_response :success
   end
 
