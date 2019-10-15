@@ -1,6 +1,21 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
+  test 'should get /users/1 endpoint' do
+    User.create(name: 'Test')
+    all_users = User.all
+    get "/users/#{all_users[0]['id']}"
+    assert_response :success
+  end
+
+  test '/users/1 should retrieve a single user' do
+    user_name = 'Maggie'
+    new_user = User.create(name: user_name)
+    get "/users/#{new_user['id']}"
+    user_response = JSON.parse(@response.body, symbolize_names: true)
+    assert_equal user_name, user_response[:name]
+  end
+
   test 'should get /users endpoint' do
     get '/users'
     assert_response :success
@@ -17,20 +32,5 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_equal response_names, users
     assert_equal 2, users_response.count
-  end
-
-  test 'should get /users/1 endpoint' do
-    User.create(name: 'Test')
-    all_users = User.all
-    get "/users/#{all_users[0]['id']}"
-    assert_response :success
-  end
-
-  test '/users/1 should retrieve a single user' do
-    user_name = 'Maggie'
-    new_user = User.create(name: user_name)
-    get "/users/#{new_user['id']}"
-    user_response = JSON.parse(@response.body, symbolize_names: true)
-    assert_equal user_name, user_response[:name]
   end
 end
