@@ -24,7 +24,7 @@ Install dependencies
 cd junk4dollars-api && bundle install
 ```
 
-# Starting the server locally
+## Starting the server locally
 
 From within the `junk4dollars-api` directory
 
@@ -34,6 +34,15 @@ rails server
 
 Visit `localhost:3000` in your browser
 
-# CI
+## CI
 
-[https://travis-ci.com/riccjohn/junk4dollars-api](https://travis-ci.com/riccjohn/junk4dollars-api)
+[Travis CI](https://travis-ci.com/riccjohn/junk4dollars-api)
+
+---
+
+# API
+
+| Route        | Usage                                |
+| ------------ | ------------------------------------ |
+| `/users/`    | Return list of all users in database |
+| `/users/:id` | Return single user by ID             |
