@@ -1,24 +1,74 @@
-# README
+# Junk4Dollars
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Build Status](https://travis-ci.com/riccjohn/junk4dollars-api.svg?branch=master)](https://travis-ci.com/riccjohn/junk4dollars-api)
 
-Things you may want to cover:
+# Installation
 
-* Ruby version
+Clone this repo
 
-* System dependencies
+```zsh
+git clone git@github.com:riccjohn/junk4dollars-api.git
+```
 
-* Configuration
+Install dependencies
 
-* Database creation
+```zsh
+cd junk4dollars-api && bundle install
+```
 
-* Database initialization
+## Set up the databasees
 
-* How to run the test suite
+```zsh
+bundle exec rake db:create
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+This should create 3 databases
 
-* Deployment instructions
+- `junk4dollars_development`
+- `junk4dollars_test`
+- `junk4dollars_production`
 
-* ...
+Run migration
+
+```zsh
+rails db:migrate
+```
+
+## Starting the server locally
+
+From within the `junk4dollars-api` directory
+
+```zsh
+rails server
+```
+
+Visit `localhost:3000` in your browser
+
+## Tests
+
+Run tests locally: `bundle exec rake test`
+
+Note: Tests are set to run in parallel, so you'll see multiple test databases are created the first time you run the tests.
+
+## CI
+
+[Travis CI](https://travis-ci.com/riccjohn/junk4dollars-api) will:
+
+- Run all tests
+- Run Rubocop to make sure there are no formatting offenses
+
+## Linting
+
+Rubocop
+Run Rubocop locally to find formatting errors: `bundle exec rake rubocop`
+
+Run Rubocop to auto-fix all formatting errors: `bundle exec rake rubocop:auto_correct`
+
+---
+
+# API
+
+| Route        | Usage                                                     |
+| ------------ | --------------------------------------------------------- |
+| `/users/`    | Return list of all users in database (non-sensitive data) |
+| `/users/:id` | Return single user by ID (non-sensitive data)             |
