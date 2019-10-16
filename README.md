@@ -4,14 +4,6 @@
 
 # Installation
 
-## Rails
-
-Install `rails 6.0.0`
-
-```zsh
-gem install rails -v 6.0.0
-```
-
 Clone this repo
 
 ```zsh
@@ -24,6 +16,20 @@ Install dependencies
 cd junk4dollars-api && bundle install
 ```
 
+## Set up the database
+
+Create the development database
+
+```zsh
+createdb junk4dollars_development
+```
+
+Run migration
+
+```zsh
+rails db:migrate
+```
+
 ## Starting the server locally
 
 From within the `junk4dollars-api` directory
@@ -34,15 +40,29 @@ rails server
 
 Visit `localhost:3000` in your browser
 
+## Tests
+
+Run tests locally: `bundle exec rake test`
+
 ## CI
 
-[Travis CI](https://travis-ci.com/riccjohn/junk4dollars-api)
+[Travis CI](https://travis-ci.com/riccjohn/junk4dollars-api) will:
+
+- Run all tests
+- Run Rubocop to make sure there are no formatting offenses
+
+## Linting
+
+Rubocop
+Run Rubocop locally to find formatting errors: `bundle exec rake rubocop`
+
+Run Rubocop to auto-fix all formatting errors: `bundle exec rake rubocop:auto_correct`
 
 ---
 
 # API
 
-| Route        | Usage                                |
-| ------------ | ------------------------------------ |
-| `/users/`    | Return list of all users in database |
-| `/users/:id` | Return single user by ID             |
+| Route        | Usage                                                     |
+| ------------ | --------------------------------------------------------- |
+| `/users/`    | Return list of all users in database (non-sensitive data) |
+| `/users/:id` | Return single user by ID (non-sensitive data)             |
