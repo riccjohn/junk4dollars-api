@@ -16,13 +16,17 @@ Install dependencies
 cd junk4dollars-api && bundle install
 ```
 
-## Set up the database
-
-Create the development database
+## Set up the databasees
 
 ```zsh
-createdb junk4dollars_development
+bundle exec rake db:create
 ```
+
+This should create 3 databases
+
+- `junk4dollars_development`
+- `junk4dollars_test`
+- `junk4dollars_production`
 
 Run migration
 
@@ -43,6 +47,8 @@ Visit `localhost:3000` in your browser
 ## Tests
 
 Run tests locally: `bundle exec rake test`
+
+Note: Tests are set to run in parallel, so you'll see multiple test databases are created the first time you run the tests.
 
 ## CI
 
