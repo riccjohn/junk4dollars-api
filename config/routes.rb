@@ -3,5 +3,4 @@ Rails.application.routes.draw do
   # resources :users
   get 'users' => 'users#index'
   get 'users/:id' => 'users#show'
-  get 'dummy' => 'application#dummy_api'
 end
