@@ -12,6 +12,14 @@ git clone git@github.com:riccjohn/junk4dollars-api.git
 
 Install dependencies
 
+System Dependencies
+
+- Postgres
+- Ruby
+- Bundler
+
+Make sure you have Postgres running
+
 ```zsh
 cd junk4dollars-api && bundle install
 ```

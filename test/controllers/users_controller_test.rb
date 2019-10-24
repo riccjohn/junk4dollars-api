@@ -10,7 +10,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test '/users/1 should retrieve a single user' do
     user_name = 'Maggie'
     new_user = User.create(name: user_name)
-    get "/users/#{new_user['id']}"
+    get "/users/#{new_user.id}"
+
     user_response = JSON.parse(@response.body, symbolize_names: true)
     assert_equal user_name, user_response[:name]
   end
