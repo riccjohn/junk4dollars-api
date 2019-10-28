@@ -14,15 +14,33 @@ Install dependencies
 
 System Dependencies
 
-- Postgres
-- Ruby
-- Bundler
+- [Postgres](https://www.postgresql.org/)
+- [Ruby 2.6.4](https://www.ruby-lang.org/en/documentation/installation/)
+
+Bundler
+
+```zsh
+gem install bundler
+```
 
 Make sure you have Postgres running
 
 ```zsh
 cd junk4dollars-api && bundle install
 ```
+
+## Common Problems
+
+- Nokogiri fails due to missing dependencies
+
+  - Make sure you have `libxslt-dev libxml2-dev zlib1g-dev` installed
+
+- `pg` fails to install (usually on Linux)
+  - Make sure you have `postgresql` and `libpq` installed.
+    ```zsh
+    sudo apt-get install postgresql # osx => brew install posgresql
+    sudo apt-get install libpq-dev
+    ```
 
 ## Set up the databasees
 
