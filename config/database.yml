@@ -77,5 +77,4 @@ production:
   <<: *default
   database: junk4dollars_production
   username: junk4dollars
-  # password: <%= ENV['JUNK4DOLLARS_DATABASE_PASSWORD'] %>
   password: <%= Rails.application.credentials.JUNK4DOLLARS_DATABASE_PASSWORD! %>
