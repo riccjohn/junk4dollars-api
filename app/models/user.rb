@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
+  
   def self.all_user_public_data
     all
   end
