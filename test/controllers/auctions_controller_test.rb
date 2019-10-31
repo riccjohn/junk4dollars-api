@@ -67,7 +67,7 @@ class AuctionsControllerTest < ActionDispatch::IntegrationTest
 
     auction_to_create.keys.each do |key|
       if (key == :end_time)
-        assert_equal Time.parse(auction_to_create[key]), Time.parse(api_response[key]).strftime('%F %T')
+        assert_equal standardize_time(auction_to_create[key]), standardize_time(api_response[key])
       else
         assert_equal auction_to_create[key].to_s, api_response[key]
       end

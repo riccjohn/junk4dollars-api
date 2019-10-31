@@ -10,4 +10,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def standardize_time(string_time)
+    Time.parse(string_time).strftime('%F %T')
+  end
 end
