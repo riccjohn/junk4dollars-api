@@ -29,7 +29,7 @@ class AuctionTest < ActiveSupport::TestCase
 
     returned_auctions = Auction.all_auctions
     assert_equal 2, returned_auctions.length
-    assert_equal auctions_to_create.map {|auction| auction[:title]}, returned_auctions.map {|auction| auction[:title]}
+    assert_equal auctions_to_create.map {|auction| auction[:title]}.sort, returned_auctions.map {|auction| auction[:title]}.sort
   end
 
   test 'single_auction returns an auction given an id' do

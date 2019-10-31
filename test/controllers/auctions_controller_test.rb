@@ -36,8 +36,8 @@ class AuctionsControllerTest < ActionDispatch::IntegrationTest
     get '/auctions'
     auction_response = JSON.parse(@response.body, symbolize_names: true)
     response_auction_titles = auction_response.map {|auction| auction[:title]}
-    assert_equal 2, auction_response.length
-    assert_equal auctions_to_create.map {|auction| auction[:title]}, response_auction_titles
+    assert_equal auctions_to_create.count, auction_response.count
+    assert_equal auctions_to_create.map {|auction| auction[:title]}.sort, response_auction_titles.sort
   end
 
   test 'should get /auctions/1 endpoint' do
@@ -62,7 +62,7 @@ class AuctionsControllerTest < ActionDispatch::IntegrationTest
     }
     created_auction = Auction.create(auction_to_create)
 
-    get "/auctions/#{created_auction[:id]}"
+    get "/auctions/#{created_auction.id}"
     api_response = JSON.parse(@response.body, symbolize_names: true)
 
     auction_to_create.keys.each do |key|
