@@ -32,5 +32,5 @@ auctions = [
   },
 ]
 
-users.each {|user| User.create(name: user[:name])}
+users.each {|user| User.create(user)}
 auctions.each {|auction| Auction.create(auction)}
