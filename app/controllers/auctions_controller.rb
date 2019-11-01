@@ -1,11 +1,11 @@
 class AuctionsController < ApplicationController
   def index
-    auctions = Auction.all_auctions
+    auctions = Auction.all
     render json: auctions
   end
 
   def show
-    auction = Auction.single_auction(params[:id])
+    auction = Auction.find(params[:id])
     render json: auction
   end
 end
