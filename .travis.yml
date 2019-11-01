@@ -3,8 +3,5 @@ rvm:
   - 2.6.4
 services:
   - postgresql
-before_script:
-  - RAILS_ENV=test bundle exec rake db:setup
 script:
-  - bundle exec rake test
-  - bundle exec rake rubocop
+  - bundle exec rake travis
