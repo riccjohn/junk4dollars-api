@@ -5,9 +5,7 @@ class CreateAuctions < ActiveRecord::Migration[6.0]
       t.string :description
       t.decimal :start_bid, precision: 10, scale: 2
       t.decimal :current_bid, precision: 10, scale: 2
-      t.binary :image
-      t.datetime :end_time
-
+      t.datetime :ends_at
       t.timestamps
     end
   end
