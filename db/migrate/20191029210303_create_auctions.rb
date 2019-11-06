@@ -3,8 +3,7 @@ class CreateAuctions < ActiveRecord::Migration[6.0]
     create_table :auctions do |t|
       t.string :title
       t.string :description
-      t.decimal :start_bid, precision: 10, scale: 2
-      t.decimal :current_bid, precision: 10, scale: 2
+      t.integer :starting_price
       t.datetime :ends_at
       t.timestamps
     end

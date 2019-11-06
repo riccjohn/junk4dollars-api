@@ -18,8 +18,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_210303) do
   create_table 'auctions', force: :cascade do |t|
     t.string 'title'
     t.string 'description'
-    t.decimal 'start_bid', precision: 10, scale: 2
-    t.decimal 'current_bid', precision: 10, scale: 2
+    t.integer 'starting_price'
     t.datetime 'ends_at'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
