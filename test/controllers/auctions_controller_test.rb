@@ -7,15 +7,13 @@ class AuctionsControllerTest < ActionDispatch::IntegrationTest
       {
         title: 'Mustang',
         description: '1968 Ford Mustang',
-        start_bid: 12000.00,
-        current_bid: 12000.00,
+        starting_price: 1_200_000,
         ends_at: 10.days.from_now,
       },
       {
         title: 'Fallen Empires Booster',
         description: '3x MTG Fallen Empires booster packs',
-        start_bid: 10.00,
-        current_bid: 14.50,
+        starting_price: 1_000,
         ends_at: 10.days.from_now,
       }
     ]
@@ -35,8 +33,7 @@ class AuctionsControllerTest < ActionDispatch::IntegrationTest
     auction_to_create = {
       title: 'Mustang',
       description: '1968 Ford Mustang',
-      start_bid: 12000.00,
-      current_bid: 12000.00,
+      starting_price: 1_200_000,
       ends_at: 10.days.from_now.strftime('%FT%TZ')
     }
     created_auction = Auction.create(auction_to_create)
@@ -49,7 +46,7 @@ class AuctionsControllerTest < ActionDispatch::IntegrationTest
       if (key == :ends_at)
         assert_equal standardize_time(auction_to_create[key]), standardize_time(api_response[key])
       else
-        assert_equal auction_to_create[key].to_s, api_response[key]
+        assert_equal auction_to_create[key], api_response[key]
       end
     end
   end
