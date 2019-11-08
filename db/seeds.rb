@@ -19,15 +19,13 @@ auctions = [
   {
     title: 'Throne of Eldraine Booster Box',
     description: 'New: A brand-new, unused, unopened, undamaged item (including handmade items).',
-    start_bid: 85.00,
-    current_bid: 88.50,
+    starting_price: 8500,
     ends_at: '2019-11-01 15:35:21 -0500'
   },
   {
     title: 'Oko, Theif of Crowns',
     description: 'Brand new. Single card',
-    start_bid: 10.00,
-    current_bid: 11.50,
+    starting_price: 10.00,
     ends_at: '2019-11-01 15:35:21 -0500'
   },
 ]
