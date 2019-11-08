@@ -94,7 +94,9 @@ Run Rubocop to auto-fix all formatting errors: `bundle exec rake rubocop:auto_co
 
 # API
 
-| Route        | Usage                                                     |
-| ------------ | --------------------------------------------------------- |
-| `/users/`    | Return list of all users in database (non-sensitive data) |
-| `/users/:id` | Return single user by ID (non-sensitive data)             |
+| Route           | Usage                                         |
+| --------------- | --------------------------------------------- |
+| `/users/`       | Return list of all users (non-sensitive data) |
+| `/users/:id`    | Return single user by ID (non-sensitive data) |
+| `/auctions/`    | Return list of all auctions                   |
+| `/auctions/:id` | Return single auction by ID                   |
