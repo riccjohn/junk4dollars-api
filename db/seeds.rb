@@ -25,7 +25,7 @@ auctions = [
   {
     title: 'Oko, Theif of Crowns',
     description: 'Brand new. Single card',
-    starting_price: 10.00,
+    starting_price: 1000,
     ends_at: '2019-11-01 15:35:21 -0500'
   },
 ]
