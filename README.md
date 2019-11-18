@@ -70,6 +70,16 @@ rails server
 
 Visit `localhost:3000` in your browser
 
+## Starting the server in production
+
+You'll need to find your Rails master key to allow you to access the encrypted information in your credientials file. Your master key should be in `config/master.key`
+
+To get the production database built:
+`RAILS_ENV=production RAILS_MASTER_KEY="MASTER_KEY_HERE" bundle exec rake db:setup`
+
+Start the production server
+`RAILS_MASTER_KEY="MASTER_KEY_HERE" rails s -e production`
+
 ## Tests
 
 Run tests locally: `bundle exec rake test`
