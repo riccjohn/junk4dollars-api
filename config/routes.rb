@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show'
   get 'auctions' => 'auctions#index'
   get 'auctions/:id' => 'auctions#show'
+  get 'public' => 'public#public'
+  get 'private' => 'private#private'
 end
