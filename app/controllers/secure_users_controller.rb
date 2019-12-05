@@ -3,7 +3,8 @@ class SecureUsersController < ActionController::API
 
   def me
     token = request.headers['Authorization'].split(' ').last
-    pp(token)
-    render json: {id: 1, name: 'John Riccardi', email: 'john@8thlight.com'}
+    auth0_id = JsonWebToken.verify(token).first['sub'].split('|').last
+    user = User.find_by_auth0_id(auth0_id)
+    render json: user
   end
 end
