@@ -5,8 +5,6 @@ module Secured
     before_action :authenticate_request!
   end
 
-  private
-
   def authenticate_request!
     auth_token
   rescue JWT::VerificationError, JWT::DecodeError
@@ -21,5 +19,9 @@ module Secured
 
   def auth_token
     JsonWebToken.verify(http_token)
+  end
+
+  def auth0_id
+    auth_token.first['sub']
   end
 end
