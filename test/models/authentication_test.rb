@@ -4,7 +4,6 @@ require 'test_helper'
 class AuthenticationTest < ActiveSupport::TestCase
   def setup
     @parser = double(authenticate_request: true, auth0_id: 'auth0|002')
-    # allow(@parser).to receive(:auth0_id).with('foo') {'auth0|002'}
     @authentication = Authentication.new(@parser)
   end
 
