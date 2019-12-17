@@ -4,6 +4,6 @@ class System
   end
 
   def self.authentication
-    @authentication ||= Authentication.new
+    @authentication ||= FakeAuthentication.new
   end
 end
