@@ -6,7 +6,7 @@ module Secured
   end
 
   def authenticate_request!
-    @user = System.authentication.current_user
+    @user = System.authentication.current_user(request)
     unless @user
       render status: 401
     end

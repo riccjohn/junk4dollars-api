@@ -3,7 +3,7 @@ class FakeAuthentication
     @current_user = user
   end
 
-  def current_user
+  def current_user(_request)
     @current_user
   end
 end

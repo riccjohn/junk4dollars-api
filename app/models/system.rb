@@ -4,6 +4,7 @@ class System
   end
 
   def self.authentication
-    @authentication ||= FakeAuthentication.new
+    parser = '??'
+    @authentication ||= Authentication.new(parser)
   end
 end
