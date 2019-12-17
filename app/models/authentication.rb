@@ -5,24 +5,16 @@ class Authentication
   end
 
   def current_user(request)
-    if request.headers['authorization']
-      bearer = get_bearer_token(request.headers)
+    @request = request
+    if @request.headers['Authorization']
+      @parser.authenticate_request(@request)
       begin
-        user_to_retrieve = @parser.auth0_id(bearer)
+        user_to_retrieve = @parser.auth0_id
         User.find_by_auth0_id(user_to_retrieve)
       rescue => exception
         print exception
         return nil
       end
     end
-  end
-
-  private
-
-  def get_bearer_token(header)
-    auth = header['authorization']
-    auth_array = auth.split(' ')
-    bearer_index = auth_array.index('bearer')
-    auth_array[bearer_index + 1]
   end
 end

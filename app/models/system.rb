@@ -4,7 +4,7 @@ class System
   end
 
   def self.authentication
-    parser = '??'
+    parser = Auth0Parser.new
     @authentication ||= Authentication.new(parser)
   end
 end
