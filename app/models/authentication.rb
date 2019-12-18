@@ -7,9 +7,7 @@ class Authentication
   def current_user(request)
     @request = request
 
-    if !@request.headers['Authorization']
-      return nil
-    end
+    return nil unless @request.headers['Authorization']
 
     begin
       user_to_retrieve = @parser.auth0_id(@request)

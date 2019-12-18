@@ -2,6 +2,6 @@ class SecureUsersController < ActionController::API
   include Secured
 
   def me
-    render json: user
+    render json: current_user
   end
 end

@@ -12,7 +12,6 @@ class Auth0Parser
   end
 
   def self.auth0_id(request)
-    authenticate_request(request)
     auth_token(request).first['sub']
   end
 end

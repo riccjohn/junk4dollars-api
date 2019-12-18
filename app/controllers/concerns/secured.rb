@@ -12,7 +12,7 @@ module Secured
     end
   end
 
-  def user
+  def current_user
     @user
   end
 end
