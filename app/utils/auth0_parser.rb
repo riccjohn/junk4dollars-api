@@ -1,8 +1,6 @@
 class Auth0Parser
   def self.authenticate_request(request)
     auth_token(request)
-  rescue JWT::VerificationError, JWT::DecodeError
-    render json: { errors: ['Not Authenticated'] }, status: :unauthorized
   end
 
   def self.http_token(request)
