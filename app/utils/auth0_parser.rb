@@ -1,22 +1,20 @@
 class Auth0Parser
-  def authenticate_request(request)
-    @request = request
-    auth_token
+  def self.authenticate_request(request)
+    auth_token(request)
   rescue JWT::VerificationError, JWT::DecodeError
     render json: { errors: ['Not Authenticated'] }, status: :unauthorized
   end
 
-  def http_token
-    if @request.headers['Authorization'].present?
-      @request.headers['Authorization'].split(' ').last
-    end
+  def self.http_token(request)
+    request.headers['Authorization'].split(' ').last
   end
 
-  def auth_token
-    JsonWebToken.verify(http_token)
+  def self.auth_token(request)
+    JsonWebToken.verify(http_token(request))
   end
 
-  def auth0_id
-    auth_token.first['sub']
+  def self.auth0_id(request)
+    authenticate_request(request)
+    auth_token(request).first['sub']
   end
 end
