@@ -1,17 +1,9 @@
 class Auth0Parser
-  def self.authenticate_request(request)
-    auth_token(request)
+  def self.auth_token(token)
+    JsonWebToken.verify(token)
   end
 
-  def self.http_token(request)
-    request.headers['Authorization'].split(' ').last
-  end
-
-  def self.auth_token(request)
-    JsonWebToken.verify(http_token(request))
-  end
-
-  def self.auth0_id(request)
-    auth_token(request).first['sub']
+  def self.auth0_id(token)
+    auth_token(token).first['sub']
   end
 end
