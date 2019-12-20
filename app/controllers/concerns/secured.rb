@@ -6,22 +6,13 @@ module Secured
   end
 
   def authenticate_request!
-    auth_token
-  rescue JWT::VerificationError, JWT::DecodeError
-    render json: { errors: ['Not Authenticated'] }, status: :unauthorized
-  end
-
-  def http_token
-    if request.headers['Authorization'].present?
-      request.headers['Authorization'].split(' ').last
+    @user = System.authentication.current_user(request)
+    unless @user
+      render status: 401
     end
   end
 
-  def auth_token
-    JsonWebToken.verify(http_token)
-  end
-
-  def auth0_id
-    auth_token.first['sub']
+  def current_user
+    @user
   end
 end

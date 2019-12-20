@@ -1,6 +1,8 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+require 'rspec/mocks/minitest_integration'
+require 'fake_authentication'
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers

@@ -34,6 +34,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use Rubocop for static analysis while developing
   gem 'rubocop', '~> 0.75.0', require: false
+  gem 'rspec-mocks'
 end
 
 group :development do
