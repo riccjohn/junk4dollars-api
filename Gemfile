@@ -23,6 +23,8 @@ gem 'jwt'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'rubocop', '~> 0.75.0', require: false
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -33,7 +35,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use Rubocop for static analysis while developing
-  gem 'rubocop', '~> 0.75.0', require: false
   gem 'rspec-mocks'
 end
 
