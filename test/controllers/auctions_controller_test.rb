@@ -3,18 +3,23 @@ require 'date'
 
 class AuctionsControllerTest < ActionDispatch::IntegrationTest
   test '/auctions should retrieve all auctions as json' do
+
+    user = User.create(name: 'Foo', auth0_id: 'bar')
+
     auctions_to_create = [
       {
         title: 'Mustang',
         description: '1968 Ford Mustang',
         starting_price: 1_200_000,
         ends_at: 10.days.from_now,
+        user_id: user.id
       },
       {
         title: 'Fallen Empires Booster',
         description: '3x MTG Fallen Empires booster packs',
         starting_price: 1_000,
         ends_at: 10.days.from_now,
+        user_id: user.id
       }
     ]
 
@@ -30,13 +35,17 @@ class AuctionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should return the correct auction given an id' do
+    user = User.create(name: 'Foo', auth0_id: 'bar')
+
     auction_to_create = {
       title: 'Mustang',
       description: '1968 Ford Mustang',
       starting_price: 1_200_000,
-      ends_at: 10.days.from_now.strftime('%FT%TZ')
+      ends_at: 10.days.from_now.strftime('%FT%TZ'),
+      user_id: user.id
     }
-    created_auction = Auction.create(auction_to_create)
+
+    created_auction = Auction.create!(auction_to_create)
 
     get "/auctions/#{created_auction.id}"
     api_response = JSON.parse(@response.body, symbolize_names: true)
