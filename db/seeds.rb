@@ -61,5 +61,11 @@ auctions = [
   },
 ]
 
+bids = [
+  {auction_id: 1, price: 8599, user_id: 2},
+  {auction_id: 6, price: 7599, user_id: 1}
+]
+
 users.each {|user| User.find_or_create_by(user)}
 auctions.each {|auction| Auction.find_or_create_by(auction)}
+bids.each {|bid| Bid.find_or_create_by(bid)}
