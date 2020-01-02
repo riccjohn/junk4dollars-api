@@ -3,9 +3,8 @@ class CreateBids < ActiveRecord::Migration[6.0]
     create_table :bids do |t|
       t.integer :price
       t.timestamps
+      t.references :user, null: false, foreign_key: true
+      t.references :auction, null: false, foreign_key: true
     end
-
-    add_reference :bids, :user, null: false, foreign_key: true
-    add_reference :bids, :auction, null: false, foreign_key: true
   end
 end
