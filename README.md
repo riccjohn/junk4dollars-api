@@ -96,6 +96,7 @@ Note: Tests are set to run in parallel, so you'll see multiple test databases ar
 ## Linting
 
 Rubocop
+
 Run Rubocop locally to find formatting errors: `bundle exec rake rubocop`
 
 Run Rubocop to auto-fix all formatting errors: `bundle exec rake rubocop:auto_correct`
@@ -110,3 +111,4 @@ Run Rubocop to auto-fix all formatting errors: `bundle exec rake rubocop:auto_co
 | `/users/:id`    | Return single user by ID (non-sensitive data) |
 | `/auctions/`    | Return list of all auctions                   |
 | `/auctions/:id` | Return single auction by ID                   |
+| `/me`           | Return data on auth0 authenticated user       |
