@@ -2,12 +2,10 @@ class BidsController < ApplicationController
   include Secured
 
   def create
-    user_id = current_user.id
     auction_id = params[:auction_id]
-    body = JSON.parse(request.body.read, symbolize_names: true)
-    price = body[:price]
+    price = params['bid']['price']
 
-    bid = Bid.create!(auction_id: auction_id, user_id: user_id, price: price)
+    bid = Bid.create!(auction_id: auction_id, user: current_user, price: price)
     render json: bid
   end
 end
