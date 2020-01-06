@@ -15,7 +15,7 @@ class BidsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should deny access if not authenticated' do
     System.authentication = FakeAuthentication.new
-    post "/bid/#{@auction.id}"
+    post "/auctions/#{@auction.id}/bid"
     assert_response 401
   end
 
@@ -26,7 +26,7 @@ class BidsControllerTest < ActionDispatch::IntegrationTest
 
     new_bid_price = 1_299
 
-    post "/bid/#{@auction.id}", as: :json, params: { price: new_bid_price }
+    post "/auctions/#{@auction.id}/bid", as: :json, params: { price: new_bid_price }
 
     response = JSON.parse(@response.body, symbolize_names: true)
 

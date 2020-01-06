@@ -3,7 +3,7 @@ class BidsController < ApplicationController
 
   def create
     user_id = current_user.id
-    auction_id = params[:id]
+    auction_id = params[:auction_id]
     body = JSON.parse(request.body.read, symbolize_names: true)
     price = body[:price]
 

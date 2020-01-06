@@ -105,11 +105,11 @@ Run Rubocop to auto-fix all formatting errors: `bundle exec rake rubocop:auto_co
 
 # API
 
-| Route              | Method | Usage                                         |
-| ------------------ | ------ | --------------------------------------------- |
-| `/users/`          | GET    | Return list of all users (non-sensitive data) |
-| `/users/:id`       | GET    | Return single user by ID (non-sensitive data) |
-| `/auctions/`       | GET    | Return list of all auctions                   |
-| `/auctions/:id`    | GET    | Return single auction by ID                   |
-| `/me`              | GET    | Return data on auth0 authenticated user       |
-| `/bid/:auction_id` | POST   | Create a new auction if logged in             |
+| Route                       | Method | Usage                                         |
+| --------------------------- | ------ | --------------------------------------------- |
+| `/users/`                   | GET    | Return list of all users (non-sensitive data) |
+| `/users/:id`                | GET    | Return single user by ID (non-sensitive data) |
+| `/auctions/`                | GET    | Return list of all auctions                   |
+| `/auctions/:id`             | GET    | Return single auction by ID                   |
+| `/me`                       | GET    | Return data on auth0 authenticated user       |
+| `/auctions/:auction_id/bid` | POST   | Create a new auction if logged in             |

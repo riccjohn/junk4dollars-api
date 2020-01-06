@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show'
   get 'auctions' => 'auctions#index'
   get 'auctions/:id' => 'auctions#show'
-  post 'bid/:id' => 'bids#create'
+  post 'auctions/:auction_id/bid' => 'bids#create'
 end
