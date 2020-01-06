@@ -10,6 +10,10 @@ users = [
   {
     name: 'Quinn',
     auth0_id: 'auth0|000000000000000000000001'
+  },
+  {
+    name: 'John 8thLight',
+    auth0_id: 'google-oauth2|102216267915836354807'
   }
 ]
 
