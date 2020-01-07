@@ -79,4 +79,4 @@ bid_data = [
   {auction_id: auctions[0].id, price: 8699, user_id: users[2].id}
 ]
 
-bids = bid_data.each {|bid| Bid.find_or_create_by(bid)}
+bid_data.each {|bid| Bid.find_or_create_by(bid)}
