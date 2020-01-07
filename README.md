@@ -96,6 +96,7 @@ Note: Tests are set to run in parallel, so you'll see multiple test databases ar
 ## Linting
 
 Rubocop
+
 Run Rubocop locally to find formatting errors: `bundle exec rake rubocop`
 
 Run Rubocop to auto-fix all formatting errors: `bundle exec rake rubocop:auto_correct`
@@ -104,9 +105,11 @@ Run Rubocop to auto-fix all formatting errors: `bundle exec rake rubocop:auto_co
 
 # API
 
-| Route           | Usage                                         |
-| --------------- | --------------------------------------------- |
-| `/users/`       | Return list of all users (non-sensitive data) |
-| `/users/:id`    | Return single user by ID (non-sensitive data) |
-| `/auctions/`    | Return list of all auctions                   |
-| `/auctions/:id` | Return single auction by ID                   |
+| Route                       | Method | Usage                                         |
+| --------------------------- | ------ | --------------------------------------------- |
+| `/users/`                   | GET    | Return list of all users (non-sensitive data) |
+| `/users/:id`                | GET    | Return single user by ID (non-sensitive data) |
+| `/auctions/`                | GET    | Return list of all auctions                   |
+| `/auctions/:id`             | GET    | Return single auction by ID                   |
+| `/me`                       | GET    | Return data on auth0 authenticated user       |
+| `/auctions/:auction_id/bid` | POST   | Create a new auction if logged in             |
