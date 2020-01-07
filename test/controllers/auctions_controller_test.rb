@@ -89,7 +89,6 @@ class AuctionsControllerTest < ActionDispatch::IntegrationTest
     get "/auctions/#{created_auction.id}"
     auction_response = JSON.parse(@response.body, symbolize_names: true)
     assert_equal bid2.price, auction_response[:bid][:price]
-    assert_equal created_auction.id, auction_response[:bid][:auction_id]
   end
 
   test 'an auction with no bids should only return auction data' do
