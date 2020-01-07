@@ -31,6 +31,6 @@ class BidsControllerTest < ActionDispatch::IntegrationTest
     response = JSON.parse(@response.body, symbolize_names: true)
 
     assert_response :success
-    assert_equal new_bid_price, response[:price]
+    assert_equal new_bid_price, response[:bid][:price]
   end
 end

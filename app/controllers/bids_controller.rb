@@ -6,6 +6,6 @@ class BidsController < ApplicationController
     price = params['bid']['price']
 
     bid = Bid.create!(auction_id: auction_id, user: current_user, price: price)
-    render json: bid
+    render json: bid.auction
   end
 end
