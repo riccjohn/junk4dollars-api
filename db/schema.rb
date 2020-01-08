@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_02_201956) do
+ActiveRecord::Schema.define(version: 2020_01_08_151954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_01_02_201956) do
     t.datetime 'ends_at'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.bigint 'user_id', null: false
+    t.bigint 'user_id'
     t.index ['user_id'], name: 'index_auctions_on_user_id'
   end
 
