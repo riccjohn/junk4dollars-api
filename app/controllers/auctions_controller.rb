@@ -32,12 +32,12 @@ class AuctionsController < ApplicationController
   end
 
   def bid_count
-  sql = "SELECT auctions.title, COUNT(*)
+    sql = "SELECT auctions.title, COUNT(*)
   FROM auctions
   LEFT JOIN bids ON auctions.id=bids.auction_id
   GROUP BY auctions.id"
 
-  @result = ActiveRecord::Base.connection.execute(sql)
-  render json: @result
+    @result = ActiveRecord::Base.connection.execute(sql)
+    render json: @result
   end
 end
