@@ -154,10 +154,4 @@ class AuctionsControllerTest < ActionDispatch::IntegrationTest
     assert_equal auction.title, count.first[:title]
     assert_equal 3, count.first[:count]
   end
-
-  def create_bid(attributes = {})
-    @price = (@price || 100) + 1
-    default_attrs = {price: @price}
-    Bid.create!(default_attrs.merge(attributes))
-  end
 end
