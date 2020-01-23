@@ -111,9 +111,35 @@ class AuctionsControllerTest < ActionDispatch::IntegrationTest
     assert_nil auction_response[:bid]
   end
 
-  def create_bid(atributes = {})
+  test '/auctions/details should return the price as the highest bid if available' do
+    assert_equal 0, User.count
+    assert_equal 0, Auction.count
+    user = User.create!(name: 'Foo', auth0_id: 'auth0|bar')
+    assert_equal 1, User.count
+
+    auction_to_create = {
+      title: 'Mustang !?!?',
+      description: '1968 Ford Mustang',
+      starting_price: 1_200_000,
+      ends_at: 10.days.from_now.strftime('%FT%TZ'),
+      user_id: user.id
+    }
+
+    auction = Auction.create!(auction_to_create)
+
+    assert_equal 1, Auction.count
+
+    bid = create_bid(user_id: user.id, auction_id: auction.id)
+
+    get '/auctions/all/details'
+    auction_response = JSON.parse(@response.body, symbolize_names: true)
+
+    assert_equal bid.price, auction_response[0][:price]
+  end
+
+  def create_bid(attributes = {})
     @price = (@price || 100) + 1
     default_attrs = {price: @price}
-    Bid.create!(default_attrs.merge(atributes))
+    Bid.create!(default_attrs.merge(attributes))
   end
 end
