@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get 'auctions' => 'auctions#index'
   get 'auctions/all/details' => 'auctions#show_detail'
   get 'auctions/:id' => 'auctions#show'
+  get 'auctions/bids/count' => 'auctions#bid_count'
   post 'auctions/:auction_id/bid' => 'bids#create'
 end
