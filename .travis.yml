@@ -10,4 +10,4 @@ jobs:
       script: bundle exec rake travis
     - stage: 'Code Style'
       name: 'Rubocop'
-      script: buncle exec rake rubocop
+      script: bundle exec rake rubocop
