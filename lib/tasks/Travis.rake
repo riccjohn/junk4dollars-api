@@ -4,5 +4,4 @@ task :travis do
   Rake::Task['db:create'].invoke
   Rake::Task['db:schema:load'].invoke
   Rake::Task['test'].invoke
-  Rake::Task['rubocop'].invoke
 end
