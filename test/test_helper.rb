@@ -15,4 +15,10 @@ class ActiveSupport::TestCase
   def standardize_time(string_time)
     Time.parse(string_time).strftime('%F %T')
   end
+
+  def create_bid(attributes = {})
+    @price = (@price || 100) + 1
+    default_attrs = {price: @price}
+    Bid.create!(default_attrs.merge(attributes))
+  end
 end
