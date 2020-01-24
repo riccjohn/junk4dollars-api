@@ -111,47 +111,9 @@ class AuctionsControllerTest < ActionDispatch::IntegrationTest
     assert_nil auction_response[:bid]
   end
 
-  test '/auctions/details should return the price as the highest bid if available' do
-    user = User.create!(name: 'Foo', auth0_id: 'auth0|bar')
-
-    auction_to_create = {
-      title: 'Mustang !?!?',
-      description: '1968 Ford Mustang',
-      starting_price: 1_200_000,
-      ends_at: 10.days.from_now.strftime('%FT%TZ'),
-      user_id: user.id
-    }
-
-    auction = Auction.create!(auction_to_create)
-
-    bid = create_bid(user_id: user.id, auction_id: auction.id)
-
-    get '/auctions/all/details'
-    auction_response = JSON.parse(@response.body, symbolize_names: true)
-
-    assert_equal bid.price, auction_response.first[:price]
-  end
-
-  test '/auctions/bid_count will return the number of bids for each auction' do
-
-    user = User.create!(name: 'Foo', auth0_id: 'auth0|bar')
-
-    auction_to_create = {
-      title: 'Mustang',
-      description: '1968 Ford Mustang',
-      starting_price: 1_200_000,
-      ends_at: 10.days.from_now.strftime('%FT%TZ'),
-      user_id: user.id
-    }
-
-    auction = Auction.create!(auction_to_create)
-    create_bid(user_id: user.id, auction_id: auction.id)
-    create_bid(user_id: user.id, auction_id: auction.id)
-    create_bid(user_id: user.id, auction_id: auction.id)
-
-    get '/auctions/bids/count'
-    count = JSON.parse(@response.body, symbolize_names: true)
-    assert_equal auction.title, count.first[:title]
-    assert_equal 3, count.first[:count]
+  def create_bid(atributes = {})
+    @price = (@price || 100) + 1
+    default_attrs = {price: @price}
+    Bid.create!(default_attrs.merge(atributes))
   end
 end
