@@ -1,11 +1,5 @@
 desc 'Delete auctions with no bids that are older than 1 week'
-task :delete_old_auctions do
-  @connection = ActiveRecord::Base.establish_connection(
-    adapter: 'postgresql',
-    host: 'localhost',
-    database: 'junk4dollars_development'
-  )
-
+task delete_old_auctions: :environment do
   sql = '
   DELETE
   FROM auctions
