@@ -3,5 +3,11 @@ rvm:
   - 2.6.4
 services:
   - postgresql
-script:
-  - bundle exec rake travis
+jobs:
+  include:
+    - stage: 'Tests'
+      name: 'Unit Tests'
+      script: bundle exec rake test
+    - stage: 'Code Style'
+      name: 'Rubocop'
+      script: buncle exec rake rubocop
